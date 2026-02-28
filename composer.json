@@ -8,10 +8,18 @@
         "framework"
     ],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/ramonmalcolm10/lara-bun"
+        }
+    ],
     "require": {
         "php": "^8.2",
         "laravel/framework": "^12.0",
-        "laravel/tinker": "^2.10.1"
+        "laravel/octane": "^2.14",
+        "laravel/tinker": "^2.10.1",
+        "ramonmalcolm10/lara-bun": "dev-feature/rsc-support"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
