@@ -431,6 +431,125 @@ function highlightEnv(code: string): Token[][] {
   });
 }
 
+function highlightIni(code: string): Token[][] {
+  return code.split('\n').map(line => {
+    const trimmed = line.trimStart();
+
+    // Comment
+    if (trimmed.startsWith('#') || trimmed.startsWith(';')) {
+      return [{ text: line, color: c.comment }];
+    }
+
+    // Section header [program:larabun]
+    const sectionMatch = trimmed.match(/^(\[)([^\]]+)(\])(.*)$/);
+    if (sectionMatch) {
+      const indent = line.slice(0, line.length - trimmed.length);
+      return [
+        { text: indent, color: c.plain },
+        { text: '[', color: c.punct },
+        { text: sectionMatch[2], color: c.keyword },
+        { text: ']', color: c.punct },
+        ...(sectionMatch[4] ? [{ text: sectionMatch[4], color: c.comment }] : []),
+      ];
+    }
+
+    // key=value
+    const eqIdx = line.indexOf('=');
+    if (eqIdx > 0) {
+      return [
+        { text: line.slice(0, eqIdx), color: c.attr },
+        { text: '=', color: c.punct },
+        { text: line.slice(eqIdx + 1), color: c.string },
+      ];
+    }
+
+    return [{ text: line, color: c.plain }];
+  });
+}
+
+function highlightDockerfile(code: string): Token[][] {
+  const instructions = new Set([
+    'FROM', 'RUN', 'CMD', 'LABEL', 'EXPOSE', 'ENV', 'ADD', 'COPY',
+    'ENTRYPOINT', 'VOLUME', 'USER', 'WORKDIR', 'ARG', 'ONBUILD',
+    'STOPSIGNAL', 'HEALTHCHECK', 'SHELL', 'AS',
+  ]);
+
+  return code.split('\n').map(line => {
+    const tokens: Token[] = [];
+    const trimmed = line.trimStart();
+
+    // Comment
+    if (trimmed.startsWith('#')) {
+      return [{ text: line, color: c.comment }];
+    }
+
+    let i = 0;
+
+    while (i < line.length) {
+      // String
+      if (line[i] === '"' || line[i] === "'") {
+        const q = line[i];
+        let str = q;
+        i++;
+        while (i < line.length && line[i] !== q) {
+          if (line[i] === '\\') { str += line[i]; i++; }
+          if (i < line.length) { str += line[i]; i++; }
+        }
+        if (i < line.length) { str += line[i]; i++; }
+        tokens.push({ text: str, color: c.string });
+        continue;
+      }
+
+      // Variable $HOME or ${VAR}
+      if (line[i] === '$') {
+        let v = '$';
+        i++;
+        if (i < line.length && line[i] === '{') {
+          while (i < line.length && line[i] !== '}') { v += line[i]; i++; }
+          if (i < line.length) { v += line[i]; i++; }
+        } else {
+          while (i < line.length && /[a-zA-Z0-9_]/.test(line[i])) { v += line[i]; i++; }
+        }
+        tokens.push({ text: v, color: c.type });
+        continue;
+      }
+
+      // Flag
+      if (line[i] === '-' && i > 0 && line[i - 1] === ' ') {
+        let flag = '';
+        while (i < line.length && line[i] !== ' ' && line[i] !== '=') { flag += line[i]; i++; }
+        tokens.push({ text: flag, color: c.attr });
+        continue;
+      }
+
+      // Word
+      if (/[a-zA-Z_]/.test(line[i])) {
+        let word = '';
+        while (i < line.length && /[a-zA-Z0-9_.:~/-]/.test(line[i])) { word += line[i]; i++; }
+
+        if (instructions.has(word)) {
+          tokens.push({ text: word, color: c.keyword });
+        } else {
+          tokens.push({ text: word, color: c.plain });
+        }
+        continue;
+      }
+
+      // Punctuation
+      if ('{}[]|&;=\\'.includes(line[i])) {
+        tokens.push({ text: line[i], color: c.punct });
+        i++;
+        continue;
+      }
+
+      tokens.push({ text: line[i], color: c.plain });
+      i++;
+    }
+
+    return tokens;
+  });
+}
+
 function highlight(code: string, language?: string): Token[][] {
   const lang = (language || '').toLowerCase();
 
@@ -448,6 +567,12 @@ function highlight(code: string, language?: string): Token[][] {
   }
   if (['env', 'dotenv'].includes(lang)) {
     return highlightEnv(code);
+  }
+  if (['ini', 'conf', 'toml', 'service'].includes(lang)) {
+    return highlightIni(code);
+  }
+  if (['dockerfile', 'docker'].includes(lang)) {
+    return highlightDockerfile(code);
   }
 
   // No highlighting — return plain
