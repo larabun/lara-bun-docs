@@ -123,7 +123,7 @@ class Posts
             marginBottom: 24,
           }}>
             <span style={{ userSelect: 'none' }}>$ </span>
-            <span style={{ color: '#d4d4d8' }}>composer require ramonmalcolm10/lara-bun</span>
+            <span style={{ color: '#d4d4d8' }}>composer require larabun/lara-bun</span>
           </div>
 
           <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -143,7 +143,7 @@ class Posts
               Documentation
             </Link>
             <a
-              href="https://github.com/ramonmalcolm10/lara-bun"
+              href="https://github.com/larabun/lara-bun"
               target="_blank"
               rel="noopener noreferrer"
               style={{

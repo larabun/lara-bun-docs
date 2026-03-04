@@ -6,7 +6,7 @@
         "build": "vite build",
         "dev": "vite",
         "build:rsc": "php artisan rsc:build --clean",
-        "dev:rsc": "bun --watch vendor/ramonmalcolm10/lara-bun/resources/build-rsc.ts"
+        "dev:rsc": "bun --watch vendor/larabun/lara-bun/resources/build-rsc.ts"
     },
     "dependencies": {
         "react": "^19.0.0",

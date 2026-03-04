@@ -30,7 +30,7 @@ export default function DocsInstallation() {
 
       <h2 style={s.h2}>1. Install the Composer Package</h2>
       <CodeBlock language="bash">
-        {`composer require ramonmalcolm10/lara-bun`}
+        {`composer require larabun/lara-bun`}
       </CodeBlock>
       <p style={s.p}>
         This installs the PHP bridge, service provider, Artisan commands, and the Bun worker script.
@@ -57,8 +57,8 @@ export default function DocsInstallation() {
       <CodeBlock language="json" title="package.json">
         {`{
   "scripts": {
-    "build:rsc": "bun vendor/ramonmalcolm10/lara-bun/resources/build-rsc.ts",
-    "dev:rsc": "bun --watch vendor/ramonmalcolm10/lara-bun/resources/build-rsc.ts"
+    "build:rsc": "bun vendor/larabun/lara-bun/resources/build-rsc.ts",
+    "dev:rsc": "bun --watch vendor/larabun/lara-bun/resources/build-rsc.ts"
   }
 }`}
       </CodeBlock>

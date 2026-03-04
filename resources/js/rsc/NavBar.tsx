@@ -66,7 +66,7 @@ export default function NavBar() {
             Docs
           </Link>
           <a
-            href="https://github.com/ramonmalcolm10/lara-bun"
+            href="https://github.com/larabun/lara-bun"
             target="_blank"
             rel="noopener noreferrer"
             style={{
