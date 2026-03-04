@@ -5,6 +5,7 @@ import DocsInertiaSsr from '../../../DocsInertiaSsr';
 import DocsRsc from '../../../DocsRsc';
 import DocsPhpCallables from '../../../DocsPhpCallables';
 import DocsServerActions from '../../../DocsServerActions';
+import DocsFileUploads from '../../../DocsFileUploads';
 import DocsAuthorization from '../../../DocsAuthorization';
 import DocsValidation from '../../../DocsValidation';
 import DocsStaticGeneration from '../../../DocsStaticGeneration';
@@ -18,6 +19,7 @@ const pages: Record<string, React.ComponentType> = {
   'rsc': DocsRsc,
   'php-callables': DocsPhpCallables,
   'server-actions': DocsServerActions,
+  'file-uploads': DocsFileUploads,
   'authorization': DocsAuthorization,
   'validation': DocsValidation,
   'static-generation': DocsStaticGeneration,

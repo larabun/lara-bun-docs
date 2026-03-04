@@ -145,7 +145,7 @@ export async function deletePost(id: number) {
 
       <hr style={s.hr} />
       <p style={s.p}>
-        Next: <Link href="/docs/authorization" style={s.accent}>Authorization &rarr;</Link>
+        Next: <Link href="/docs/file-uploads" style={s.accent}>File Uploads &rarr;</Link>
       </p>
     </div>
   );
