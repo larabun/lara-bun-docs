@@ -67,7 +67,7 @@ export default function DocsAuthorization() {
 
 namespace App\\Rsc\\Actions;
 
-use RamonMalcolm\\LaraBun\\Rsc\\Attributes\\Authenticated;
+use LaraBun\\Rsc\\Attributes\\Authenticated;
 
 #[Authenticated]
 class TodoActions
@@ -106,8 +106,8 @@ class ApiActions
 namespace App\\Rsc\\Actions;
 
 use App\\Models\\Todo;
-use RamonMalcolm\\LaraBun\\Rsc\\Attributes\\Authenticated;
-use RamonMalcolm\\LaraBun\\Rsc\\Attributes\\Can;
+use LaraBun\\Rsc\\Attributes\\Authenticated;
+use LaraBun\\Rsc\\Attributes\\Can;
 
 #[Authenticated]
 class TodoActions
@@ -148,7 +148,7 @@ public function moderate(string $id): array
 
 namespace App\\Rsc\\Actions;
 
-use RamonMalcolm\\LaraBun\\Rsc\\Attributes\\Middleware;
+use LaraBun\\Rsc\\Attributes\\Middleware;
 
 #[Middleware('auth:sanctum', 'verified')]
 class AdminActions
@@ -256,7 +256,7 @@ export default function DeleteButton({ id }: { id: string }) {
       </div>
 
       <p style={s.p}>
-        All three attributes can target both classes and methods. The namespace is <span style={s.mono}>RamonMalcolm\LaraBun\Rsc\Attributes</span>.
+        All three attributes can target both classes and methods. The namespace is <span style={s.mono}>LaraBun\Rsc\Attributes</span>.
       </p>
 
       <hr style={s.hr} />

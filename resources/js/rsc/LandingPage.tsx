@@ -278,7 +278,7 @@ class Posts
           <CodeBlock language="php" title="app/docs/[slug]/route.php">
             {`<?php
 
-use RamonMalcolm\\LaraBun\\Rsc\\PageRoute;
+use LaraBun\\Rsc\\PageRoute;
 
 return PageRoute::make()
     ->middleware(['auth', 'verified'])

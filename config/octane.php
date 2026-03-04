@@ -132,7 +132,7 @@ return [
 
     'warm' => [
         ...Octane::defaultServicesToWarm(),
-        \RamonMalcolm\LaraBun\BunBridge::class,
+        \LaraBun\BunBridge::class,
     ],
 
     'flush' => [

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use RamonMalcolm\LaraBun\Rsc\RscResponse;
+use LaraBun\Rsc\RscResponse;
 
 class DocsController extends Controller
 {

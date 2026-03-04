@@ -76,7 +76,7 @@ export default function DocsStaticGeneration() {
       </ul>
       <CodeBlock language="php" title="route.php">
         {`<?php
-use RamonMalcolm\\LaraBun\\Rsc\\PageRoute;
+use LaraBun\\Rsc\\PageRoute;
 
 // Force static — php() results baked in at prerender time
 return PageRoute::make()->forceStatic();
@@ -91,7 +91,7 @@ return PageRoute::make()->forceDynamic();`}
       </p>
       <CodeBlock language="php" title="app/docs/[slug]/route.php">
         {`<?php
-use RamonMalcolm\\LaraBun\\Rsc\\PageRoute;
+use LaraBun\\Rsc\\PageRoute;
 
 return PageRoute::make()
     ->staticPaths(fn () => Post::pluck('slug')->all());`}
@@ -101,7 +101,7 @@ return PageRoute::make()
       </p>
       <CodeBlock language="php" title="app/blog/[year]/[slug]/route.php">
         {`<?php
-use RamonMalcolm\\LaraBun\\Rsc\\PageRoute;
+use LaraBun\\Rsc\\PageRoute;
 
 return PageRoute::make()
     ->staticPaths(fn () => [
@@ -186,7 +186,7 @@ php artisan rsc:prerender --clean`}
       </p>
       <CodeBlock language="php" title="app/docs/[slug]/route.php">
         {`<?php
-use RamonMalcolm\\LaraBun\\Rsc\\PageRoute;
+use LaraBun\\Rsc\\PageRoute;
 
 return PageRoute::make()
     ->staticPaths(fn () => Post::pluck('slug')->all())

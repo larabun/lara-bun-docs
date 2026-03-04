@@ -1,6 +1,6 @@
 <?php
 
-use RamonMalcolm\LaraBun\Rsc\PageRoute;
+use LaraBun\Rsc\PageRoute;
 
 return PageRoute::make()
     ->staticPaths([

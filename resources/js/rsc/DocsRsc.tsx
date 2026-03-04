@@ -76,14 +76,14 @@ export default function DocsRsc() {
       </p>
       <CodeBlock language="php" title="app/docs/route.php — applies to all routes in /docs/*">
         {`<?php
-use RamonMalcolm\\LaraBun\\Rsc\\PageRoute;
+use LaraBun\\Rsc\\PageRoute;
 
 return PageRoute::make()
     ->middleware(['auth', 'verified']);`}
       </CodeBlock>
       <CodeBlock language="php" title="app/docs/[slug]/route.php — applies to this route only">
         {`<?php
-use RamonMalcolm\\LaraBun\\Rsc\\PageRoute;
+use LaraBun\\Rsc\\PageRoute;
 
 return PageRoute::make()
     ->staticPaths(fn () => Post::pluck('slug')->all())
