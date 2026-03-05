@@ -169,6 +169,11 @@ export async function deletePost(id: number) {
               <td style={{ padding: '8px 12px', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#a1a1aa' }}>Throws <span style={s.mono}>ServerValidationError</span></td>
             </tr>
             <tr>
+              <td style={{ padding: '8px 12px', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#a1a1aa' }}>Session expired</td>
+              <td style={{ padding: '8px 12px', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#f59e0b', fontFamily: "ui-monospace, 'Fira Code', monospace" }}>419</td>
+              <td style={{ padding: '8px 12px', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#a1a1aa' }}>Throws <span style={s.mono}>ServerSessionExpiredError</span></td>
+            </tr>
+            <tr>
               <td style={{ padding: '8px 12px', fontSize: 13, color: '#a1a1aa' }}>Redirect</td>
               <td style={{ padding: '8px 12px', fontSize: 13, color: '#f59e0b', fontFamily: "ui-monospace, 'Fira Code', monospace" }}>302</td>
               <td style={{ padding: '8px 12px', fontSize: 13, color: '#a1a1aa' }}>SPA navigation (falls back to full page load)</td>
@@ -188,6 +193,22 @@ export async function deletePost(id: number) {
       <p style={s.p}>
         <strong style={{ color: '#fafafa' }}>422 — Validation errors.</strong> <span style={s.mono}>ValidationException</span> is surfaced as a <span style={s.mono}>ServerValidationError</span> with structured error messages. See <Link href="/docs/validation" style={s.accent}>Validation</Link> for details.
       </p>
+
+      <p style={s.p}>
+        <strong style={{ color: '#fafafa' }}>419 — Session expired.</strong> When the CSRF token expires (e.g. user left the tab open for a long time), a <span style={s.mono}>ServerSessionExpiredError</span> is thrown. Handle it to show a message or reload:
+      </p>
+      <CodeBlock language="tsx">
+        {`import { ServerSessionExpiredError } from 'lara-bun/router';
+
+try {
+  await createPost(title, body);
+} catch (error) {
+  if (error instanceof ServerSessionExpiredError) {
+    // Show a toast, modal, or just reload
+    window.location.reload();
+  }
+}`}
+      </CodeBlock>
 
       <h2 style={s.h2}>Redirects</h2>
       <p style={s.p}>
