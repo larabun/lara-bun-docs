@@ -53,18 +53,17 @@ export default function DocsInstallation() {
 bun add -d @types/react @types/react-dom`}
       </CodeBlock>
       <p style={s.p}>
-        Then add the build scripts to your <span style={s.mono}>package.json</span>:
+        Then add the build script to your <span style={s.mono}>package.json</span>:
       </p>
       <CodeBlock language="json" title="package.json">
         {`{
   "scripts": {
-    "build": "bun vendor/larabun/lara-bun/resources/build-rsc.ts",
-    "dev": "bun --watch vendor/larabun/lara-bun/resources/build-rsc.ts"
+    "build": "bun vendor/larabun/lara-bun/resources/build-rsc.ts"
   }
 }`}
       </CodeBlock>
       <p style={s.p}>
-        Use <span style={s.mono}>bun run dev</span> during development — it watches for file changes and rebuilds automatically. Use <span style={s.mono}>bun run build</span> for production builds.
+        This is used for production builds. During development, <span style={s.mono}>php artisan bun:dev</span> handles building and watching automatically.
       </p>
 
       <h2 style={s.h2}>4. Environment Configuration</h2>
@@ -102,22 +101,15 @@ BUN_BRIDGE_SOCKET=/tmp/my-app-bridge.sock`}
         That's it — <span style={s.mono}>app/page.tsx</span> maps to <span style={s.mono}>GET /</span> and is automatically wrapped by <span style={s.mono}>app/layout.tsx</span>. See <Link href="/docs/rsc" style={s.accent}>File-Based Routing</Link> for the full convention.
       </p>
 
-      <h2 style={s.h2}>6. Build and Serve</h2>
+      <h2 style={s.h2}>6. Start Development</h2>
       <CodeBlock language="bash">
-        {`# Build server + client bundles
-bun run build
-
-# Start the Bun worker
-php artisan bun:serve
-
-# Or start with auto-restart on rebuild
-php artisan bun:serve --watch`}
+        {`php artisan bun:dev`}
       </CodeBlock>
       <p style={s.p}>
-        The build step auto-discovers your components, generates manifests, and creates optimized bundles. The <span style={s.mono}>bun:serve</span> command starts the Bun worker that listens on the Unix socket.
+        This single command builds your RSC bundles, starts the file watcher, and runs the Bun worker — all in one terminal. It automatically rebuilds when you change files and restarts the worker when bundles update.
       </p>
       <p style={s.p}>
-        The <span style={s.mono}>--watch</span> flag monitors your RSC build output and automatically restarts the worker when bundles change — no manual restart needed after each <span style={s.mono}>bun run build</span>.
+        For production, use <span style={s.mono}>bun run build</span> followed by <span style={s.mono}>php artisan bun:serve</span>. See <Link href="/docs/deployment" style={s.accent}>Deployment</Link> for details.
       </p>
 
       <hr style={s.hr} />

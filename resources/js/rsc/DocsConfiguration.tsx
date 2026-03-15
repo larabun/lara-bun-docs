@@ -89,14 +89,14 @@ export default function DocsConfiguration() {
         </tbody>
       </table>
       <CodeBlock language="bash">
-        {`# Development — auto-restart on rebuild
-php artisan bun:serve --watch
+        {`# Development — builds, watches, and serves in one command
+php artisan bun:dev
 
 # Production — stable process, managed by Supervisor/systemd
 php artisan bun:serve`}
       </CodeBlock>
       <p style={s.p}>
-        During development, pair <span style={s.mono}>--watch</span> with your build command in separate terminals. The worker detects when <span style={s.mono}>bun run build</span> finishes and automatically picks up the new bundles.
+        Use <span style={s.mono}>bun:dev</span> during development — it runs the build watcher and worker together in a single terminal. For production, use <span style={s.mono}>bun:serve</span> with a process manager like Supervisor.
       </p>
 
       <h2 style={s.h2}>SSR vs RSC</h2>
