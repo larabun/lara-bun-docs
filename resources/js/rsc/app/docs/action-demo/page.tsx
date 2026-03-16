@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import Link from 'lara-bun/Link';
 import CodeBlock from '../../../CodeBlock';
 import TodoDemo from './TodoDemo';
@@ -12,10 +13,31 @@ const s = {
   box: { background: '#18181b', borderRadius: 12, border: '1px solid rgba(255,255,255,0.06)', padding: 24, marginBottom: 20 } as const,
 };
 
-export default async function ActionDemoPage() {
+async function LiveTodoDemo() {
   const sessionId = await php<string>("Todos.generate");
   const todos = await php<{ id: string; title: string; done: boolean }[]>("Todos.list", sessionId);
 
+  return <TodoDemo sessionId={sessionId} initial={todos} />;
+}
+
+function TodoSkeleton() {
+  return (
+    <div style={{ padding: 24 }}>
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes rsc-pulse {
+          0%, 100% { opacity: 0.4; }
+          50% { opacity: 0.8; }
+        }
+      `}} />
+      <div style={{ height: 40, background: 'rgba(255,255,255,0.06)', borderRadius: 8, marginBottom: 16, animation: 'rsc-pulse 1.5s ease-in-out infinite' }} />
+      {Array.from({ length: 3 }).map((_, i) => (
+        <div key={i} style={{ height: 20, background: 'rgba(255,255,255,0.04)', borderRadius: 4, marginBottom: 10, width: i === 2 ? '60%' : '100%', animation: 'rsc-pulse 1.5s ease-in-out infinite', animationDelay: `${i * 0.15}s` }} />
+      ))}
+    </div>
+  );
+}
+
+export default function ActionDemoPage() {
   return (
     <div>
       <h1 style={s.h1}>Server Actions Demo</h1>
@@ -37,7 +59,9 @@ export default async function ActionDemoPage() {
         padding: 24,
         marginBottom: 24,
       }}>
-        <TodoDemo sessionId={sessionId} initial={todos} />
+        <Suspense fallback={<TodoSkeleton />}>
+          <LiveTodoDemo />
+        </Suspense>
       </div>
 
       <h2 style={s.h2}>How It Works</h2>
