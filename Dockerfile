@@ -26,6 +26,7 @@ ENV NODE_ENV=production
 ENV BUN_RSC_ENABLED=true
 ENV BUN_BRIDGE_SOCKET=/tmp/larabun-docs-bridge.sock
 
+ARG CACHEBUST=1
 RUN APP_KEY=base64:dGhpcy1pcy1hLWR1bW15LWtleS1mb3ItYnVpbGQtb25seQ== php artisan rsc:build --clean
 
 RUN rm -f /tmp/larabun-docs-bridge.sock
