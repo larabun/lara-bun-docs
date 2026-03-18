@@ -39,6 +39,8 @@ export default function DocsRsc() {
           <div style={{ paddingLeft: 16 }}>layout.tsx <span style={{ color: '#f59e0b' }}>→ root layout (wraps all pages)</span></div>
           <div style={{ paddingLeft: 16 }}>loading.tsx <span style={{ color: '#f59e0b' }}>→ Suspense fallback for all pages</span></div>
           <div style={{ paddingLeft: 16 }}>page.tsx <span style={{ color: '#f59e0b' }}>→ GET /</span></div>
+          <div style={{ paddingLeft: 16 }}><span style={{ color: '#9a9aa2' }}>@sidebar/</span></div>
+          <div style={{ paddingLeft: 32 }}>page.tsx <span style={{ color: '#a78bfa' }}>→ parallel slot "sidebar"</span></div>
           <div style={{ paddingLeft: 16 }}><span style={{ color: '#9a9aa2' }}>about/</span></div>
           <div style={{ paddingLeft: 32 }}>page.tsx <span style={{ color: '#f59e0b' }}>→ GET /about</span></div>
           <div style={{ paddingLeft: 16 }}><span style={{ color: '#9a9aa2' }}>docs/</span></div>
@@ -56,7 +58,9 @@ export default function DocsRsc() {
         <li style={s.li}>• <span style={s.mono}>page.tsx</span> — defines a route. Only files named <span style={s.mono}>page.*</span> create routes.</li>
         <li style={s.li}>• <span style={s.mono}>layout.tsx</span> — wraps all pages in the same directory and below. Receives <span style={s.mono}>children</span>.</li>
         <li style={s.li}>• <span style={s.mono}>loading.tsx</span> — Suspense fallback. Auto-wraps pages in <span style={s.mono}>{`<Suspense>`}</span>. Hierarchical — nearest to the page wins.</li>
+        <li style={s.li}>• <span style={s.mono}>default.tsx</span> — default content for a parallel slot when no matching page exists.</li>
         <li style={s.li}>• <span style={s.mono}>route.php</span> — optional PHP config for middleware, auth, static paths, and view data.</li>
+        <li style={s.li}>• <span style={s.mono}>@folder/</span> — parallel route slot. Rendered as a named prop on the nearest layout. No URL segment.</li>
       </ul>
       <p style={s.p}>
         Everything else in the directory is a colocated component — importable by pages and layouts, but not a route.
@@ -252,6 +256,45 @@ function NavContent({ children }: { children: React.ReactNode }) {
   );
 }`}
       </CodeBlock>
+
+      <h2 style={s.h2}>Parallel Routes</h2>
+      <p style={s.p}>
+        Directories prefixed with <span style={s.mono}>@</span> are parallel route slots. They render alongside the main page and are passed as named props to the nearest layout. They don't create URL segments.
+      </p>
+      <CodeBlock language="tsx" title="File structure">
+        {`resources/js/rsc/app/
+├── layout.tsx          ← receives { children, sidebar, modal }
+├── page.tsx            ← rendered as "children"
+├── @sidebar/
+│   └── page.tsx        ← rendered as "sidebar" prop
+└── @modal/
+    └── default.tsx     ← rendered as "modal" prop (empty by default)`}
+      </CodeBlock>
+      <p style={s.p}>
+        The layout receives parallel slots as props:
+      </p>
+      <CodeBlock language="tsx" title="app/layout.tsx">
+        {`export default function Layout({
+  children,
+  sidebar,
+  modal,
+}: {
+  children: React.ReactNode;
+  sidebar: React.ReactNode;
+  modal: React.ReactNode;
+}) {
+  return (
+    <div style={{ display: 'flex' }}>
+      <aside style={{ width: 250 }}>{sidebar}</aside>
+      <main style={{ flex: 1 }}>{children}</main>
+      {modal}
+    </div>
+  );
+}`}
+      </CodeBlock>
+      <p style={s.p}>
+        Use <span style={s.mono}>default.tsx</span> for slots that should render empty by default (like modals that only appear on certain routes).
+      </p>
 
       <h2 style={s.h2}>Streaming</h2>
       <p style={s.p}>
