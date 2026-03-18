@@ -27,7 +27,7 @@ export default function DocsFileUploads() {
 
       <h2 style={s.h2}>Basic File Upload</h2>
       <p style={s.p}>
-        Create a PHP action that receives a file. The file arrives as a base64-encoded string from the Flight serialization — decode it and store it using Laravel's storage.
+        Create a PHP action that receives file data. LaraBun handles binary transport automatically — no manual base64 encoding needed.
       </p>
       <CodeBlock language="php" title="app/Rsc/Actions/UploadAvatar.php">
         {`<?php
@@ -45,7 +45,7 @@ class UploadAvatar
         $user = Auth::user();
         $path = 'avatars/' . $user->id . '/' . $fileName;
 
-        Storage::disk('public')->put($path, base64_decode($fileContent));
+        Storage::disk('public')->put($path, $fileContent);
 
         $user->update(['avatar_path' => $path]);
 
@@ -55,7 +55,7 @@ class UploadAvatar
       </CodeBlock>
 
       <p style={s.p}>
-        On the client, use a standard form with a file input. Read the file as base64 before passing it to the action:
+        On the client, read the file and pass it directly to the server action:
       </p>
       <CodeBlock language="tsx" title="resources/js/rsc/app/profile/AvatarUpload.tsx">
         {`"use client";
@@ -73,12 +73,9 @@ export default function AvatarUpload() {
 
     setUploading(true);
 
-    // Convert to base64 for serialization
-    const buffer = await file.arrayBuffer();
-    const base64 = btoa(String.fromCharCode(...new Uint8Array(buffer)));
-
     try {
-      const result = await uploadAvatar(file.name, base64);
+      const content = await file.text();
+      const result = await uploadAvatar(file.name, content);
       setAvatarUrl(result.path);
     } finally {
       setUploading(false);
