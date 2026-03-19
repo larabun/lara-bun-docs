@@ -29,3 +29,6 @@ Thumbs.db
 **/caddy
 frankenphp
 frankenphp-worker.php
+
+resources/js/rsc/routes.generated.ts
+tsconfig.json
