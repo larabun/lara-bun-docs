@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea258a3a85403e3353da88ae79c3f10e",
+    "content-hash": "4a959b4e9c4459f5a2af9903382b6d06",
     "packages": [
         {
             "name": "brick/math",
@@ -1143,16 +1143,16 @@
         },
         {
             "name": "larabun/lara-bun",
-            "version": "dev-feature/file-based-router",
+            "version": "v0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/larabun/lara-bun.git",
-                "reference": "351e527842c5871022ab03a57a220f3b50ed76b8"
+                "reference": "3e2f0e09a5340a55ea366c034388d0b774e3c568"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/larabun/lara-bun/zipball/351e527842c5871022ab03a57a220f3b50ed76b8",
-                "reference": "351e527842c5871022ab03a57a220f3b50ed76b8",
+                "url": "https://api.github.com/repos/larabun/lara-bun/zipball/3e2f0e09a5340a55ea366c034388d0b774e3c568",
+                "reference": "3e2f0e09a5340a55ea366c034388d0b774e3c568",
                 "shasum": ""
             },
             "require": {
@@ -1220,10 +1220,10 @@
                 "unix-socket"
             ],
             "support": {
-                "source": "https://github.com/larabun/lara-bun/tree/feature/file-based-router",
+                "source": "https://github.com/larabun/lara-bun/tree/v0.4.0",
                 "issues": "https://github.com/larabun/lara-bun/issues"
             },
-            "time": "2026-03-19T12:31:38+00:00"
+            "time": "2026-03-20T04:16:15+00:00"
         },
         {
             "name": "laravel/framework",
@@ -9902,9 +9902,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "larabun/lara-bun": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
