@@ -50,7 +50,7 @@ export default function DocsInstallation() {
       </p>
       <CodeBlock language="bash">
         {`bun add react react-dom react-server-dom-webpack
-bun add -d @types/react @types/react-dom`}
+bun add -d @types/bun @types/react @types/react-dom`}
       </CodeBlock>
       <p style={s.p}>
         Then add the build and dev scripts to your <span style={s.mono}>package.json</span>:
