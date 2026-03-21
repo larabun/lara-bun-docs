@@ -29,6 +29,7 @@ const sections: NavSection[] = [
       { label: 'RSC & File-Based Routing', slug: 'rsc' },
       { label: 'PHP Callables', slug: 'php-callables' },
       { label: 'Server Actions', slug: 'server-actions' },
+      { label: 'Forms', slug: 'forms' },
       { label: 'File Uploads', slug: 'file-uploads' },
       { label: 'Authorization', slug: 'authorization' },
     ],

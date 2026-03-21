@@ -36,6 +36,10 @@ class DocsController extends Controller
             'title' => 'Server Actions',
             'description' => 'Use the "use server" directive to create server actions. Call from client components with streaming results.',
         ],
+        'forms' => [
+            'title' => 'Forms',
+            'description' => 'Handle forms with the Form component and useForm hook. Server validation, loading states, optimistic updates, and GET form navigation.',
+        ],
         'validation' => [
             'title' => 'Validation',
             'description' => 'Handle Laravel validation errors in React. ValidationException flow, ServerValidationError, and error catching.',
