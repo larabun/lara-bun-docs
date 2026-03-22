@@ -22,8 +22,8 @@ export default function DocsInstallation() {
 
       <h2 style={s.h2}>Requirements</h2>
       <ul style={{ listStyle: 'none' }}>
-        <li style={s.li}>• <strong style={{ color: '#fafafa' }}>PHP 8.2+</strong> with the <span style={s.mono}>sockets</span> extension</li>
-        <li style={s.li}>• <strong style={{ color: '#fafafa' }}>Laravel 11+</strong></li>
+        <li style={s.li}>• <strong style={{ color: '#fafafa' }}>PHP 8.3+</strong> with the <span style={s.mono}>sockets</span> extension</li>
+        <li style={s.li}>• <strong style={{ color: '#fafafa' }}>Laravel 13+</strong></li>
         <li style={s.li}>• <strong style={{ color: '#fafafa' }}>Bun 1.0+</strong> — the JavaScript runtime that powers the bridge</li>
         <li style={s.li}>• <strong style={{ color: '#fafafa' }}>React 19</strong> (for RSC features)</li>
       </ul>
