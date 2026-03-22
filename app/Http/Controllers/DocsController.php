@@ -20,10 +20,6 @@ class DocsController extends Controller
             'title' => 'How It Works',
             'description' => 'LaraBun\'s architecture: Unix socket bridge, length-prefixed frame protocol, Bun worker model, and request flow.',
         ],
-        'inertia-ssr' => [
-            'title' => 'Inertia SSR',
-            'description' => 'Enable server-side rendering for Inertia.js via LaraBun\'s BunSsrGateway. Build the SSR bundle and configure workers.',
-        ],
         'rsc' => [
             'title' => 'React Server Components',
             'description' => 'Build React Server Components with LaraBun. Server components, client components, layouts, streaming, and Flight payloads.',
