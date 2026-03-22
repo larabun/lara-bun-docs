@@ -1,10 +1,10 @@
 import DocsInstallation from '../../../DocsInstallation';
 import DocsConfiguration from '../../../DocsConfiguration';
 import DocsHowItWorks from '../../../DocsHowItWorks';
-import DocsInertiaSsr from '../../../DocsInertiaSsr';
 import DocsRsc from '../../../DocsRsc';
 import DocsPhpCallables from '../../../DocsPhpCallables';
 import DocsServerActions from '../../../DocsServerActions';
+import DocsForms from '../../../DocsForms';
 import DocsFileUploads from '../../../DocsFileUploads';
 import DocsAuthorization from '../../../DocsAuthorization';
 import DocsValidation from '../../../DocsValidation';
@@ -20,10 +20,10 @@ const pages: Record<string, React.ComponentType> = {
   'installation': DocsInstallation,
   'configuration': DocsConfiguration,
   'how-it-works': DocsHowItWorks,
-  'inertia-ssr': DocsInertiaSsr,
   'rsc': DocsRsc,
   'php-callables': DocsPhpCallables,
   'server-actions': DocsServerActions,
+  'forms': DocsForms,
   'file-uploads': DocsFileUploads,
   'authorization': DocsAuthorization,
   'validation': DocsValidation,
