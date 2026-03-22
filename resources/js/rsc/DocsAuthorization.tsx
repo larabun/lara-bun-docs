@@ -141,16 +141,17 @@ public function moderate(string $id): array
 
       <h2 style={s.h2}>#[Middleware]</h2>
       <p style={s.p}>
-        Runs one or more Laravel middleware through the <span style={s.mono}>Pipeline</span>. This gives you the full power of Laravel's middleware system — rate limiting, auth guards, custom middleware, and anything else you'd use in a route definition.
+        Uses Laravel's native <span style={s.mono}>#[Middleware]</span> attribute (Laravel 13+) to run middleware through the <span style={s.mono}>Pipeline</span>. This gives you the full power of Laravel's middleware system — rate limiting, auth guards, custom middleware, and anything else you'd use in a route definition.
       </p>
       <CodeBlock language="php" title="app/Rsc/Actions/AdminActions.php">
         {`<?php
 
 namespace App\\Rsc\\Actions;
 
-use LaraBun\\Rsc\\Attributes\\Middleware;
+use Illuminate\\Routing\\Attributes\\Controllers\\Middleware;
 
-#[Middleware('auth:sanctum', 'verified')]
+#[Middleware('auth:sanctum')]
+#[Middleware('verified')]
 class AdminActions
 {
     public function reset(): void
@@ -161,10 +162,12 @@ class AdminActions
       </CodeBlock>
 
       <p style={s.p}>
-        You can combine <span style={s.mono}>#[Middleware]</span> with the other attributes freely:
+        The attribute is repeatable — stack multiple <span style={s.mono}>#[Middleware]</span> for each middleware you need. You can combine it with the other attributes freely:
       </p>
       <CodeBlock language="php">
-        {`#[Middleware('throttle:60,1')]
+        {`use Illuminate\\Routing\\Attributes\\Controllers\\Middleware;
+
+#[Middleware('throttle:60,1')]
 #[Authenticated]
 class RateLimitedActions
 {
@@ -260,15 +263,15 @@ class RateLimitedActions
             </tr>
             <tr>
               <td style={{ padding: '8px 12px', fontSize: 13, color: '#f59e0b', fontFamily: "ui-monospace, 'Fira Code', monospace" }}>#[Middleware]</td>
-              <td style={{ padding: '8px 12px', fontSize: 13, color: '#a1a1aa', fontFamily: "ui-monospace, 'Fira Code', monospace" }}>string ...$middleware</td>
-              <td style={{ padding: '8px 12px', fontSize: 14, color: '#a1a1aa' }}>No</td>
+              <td style={{ padding: '8px 12px', fontSize: 13, color: '#a1a1aa', fontFamily: "ui-monospace, 'Fira Code', monospace" }}>string $middleware</td>
+              <td style={{ padding: '8px 12px', fontSize: 14, color: '#a1a1aa' }}>Yes</td>
             </tr>
           </tbody>
         </table>
       </div>
 
       <p style={s.p}>
-        All three attributes can target both classes and methods. The namespace is <span style={s.mono}>LaraBun\Rsc\Attributes</span>.
+        <span style={s.mono}>#[Authenticated]</span> and <span style={s.mono}>#[Can]</span> are from <span style={s.mono}>LaraBun\Rsc\Attributes</span>. <span style={s.mono}>#[Middleware]</span> is Laravel's native attribute from <span style={s.mono}>Illuminate\Routing\Attributes\Controllers\Middleware</span> (Laravel 13+). All three can target both classes and methods.
       </p>
 
       <hr style={s.hr} />
