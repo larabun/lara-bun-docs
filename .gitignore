@@ -32,3 +32,9 @@ frankenphp-worker.php
 
 resources/js/rsc/routes.generated.ts
 tsconfig.json
+
+# LaraBun RSC (generated)
+/public/build/rsc
+/public/build/css
+resources/js/rsc/server-actions.generated.ts
+storage/framework/rsc-dev

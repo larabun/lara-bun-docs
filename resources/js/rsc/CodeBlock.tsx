@@ -803,7 +803,7 @@ export default function CodeBlock({ children, language, title }: CodeBlockProps)
         }}>
           <span style={{
             fontSize: 12,
-            fontFamily: "ui-monospace, 'Cascadia Code', 'Fira Code', monospace",
+            fontFamily: "ui-monospace, 'SFMono-Regular', monospace",
             color: '#d4d4d8',
           }}>
             {title || language}
@@ -816,7 +816,7 @@ export default function CodeBlock({ children, language, title }: CodeBlockProps)
               color: copied ? '#4ade80' : '#9a9aa2',
               cursor: 'pointer',
               fontSize: 12,
-              fontFamily: "ui-monospace, 'Cascadia Code', 'Fira Code', monospace",
+              fontFamily: "ui-monospace, 'SFMono-Regular', monospace",
               padding: '2px 8px',
               borderRadius: 4,
               transition: 'color 0.15s',
@@ -832,7 +832,7 @@ export default function CodeBlock({ children, language, title }: CodeBlockProps)
         margin: 0,
       }}>
         <code style={{
-          fontFamily: "ui-monospace, 'Cascadia Code', 'Fira Code', monospace",
+          fontFamily: "ui-monospace, 'SFMono-Regular', monospace",
           fontSize: 13,
           lineHeight: 1.7,
         }}>

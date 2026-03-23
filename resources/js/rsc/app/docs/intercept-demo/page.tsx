@@ -1,9 +1,9 @@
 import Link from 'lara-bun/Link';
 
 const s = {
-  h1: { fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 32, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 12 } as const,
+  h1: { fontFamily: "system-ui, -apple-system, sans-serif", fontSize: 32, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 12 } as const,
   p: { color: '#d4d4d8', fontSize: 15, lineHeight: 1.8, marginBottom: 16 } as const,
-  mono: { fontFamily: "ui-monospace, 'Cascadia Code', 'Fira Code', monospace", fontSize: 13, background: 'rgba(255,255,255,0.06)', padding: '2px 6px', borderRadius: 4, color: '#e4e4e7' } as const,
+  mono: { fontFamily: "ui-monospace, 'SFMono-Regular', monospace", fontSize: 13, background: 'rgba(255,255,255,0.06)', padding: '2px 6px', borderRadius: 4, color: '#e4e4e7' } as const,
   accent: { color: '#f59e0b' } as const,
 };
 
@@ -49,7 +49,7 @@ export default function InterceptDemoPage() {
             }} />
             <div>
               <div style={{ color: '#fafafa', fontWeight: 500, fontSize: 15 }}>{item.title}</div>
-              <div style={{ color: '#52525b', fontSize: 12, fontFamily: "ui-monospace, 'Fira Code', monospace", marginTop: 2 }}>
+              <div style={{ color: '#52525b', fontSize: 12, fontFamily: "ui-monospace, 'SFMono-Regular', monospace", marginTop: 2 }}>
                 /docs/intercept-demo/item/{item.id}
               </div>
             </div>

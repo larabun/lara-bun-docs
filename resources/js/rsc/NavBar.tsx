@@ -37,13 +37,13 @@ export default function NavBar() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontFamily: "'Bricolage Grotesque', sans-serif",
+            fontFamily: "system-ui, -apple-system, sans-serif",
             fontWeight: 800,
             fontSize: 16,
             color: '#09090b',
           }}>B</div>
           <span style={{
-            fontFamily: "'Bricolage Grotesque', sans-serif",
+            fontFamily: "system-ui, -apple-system, sans-serif",
             fontWeight: 700,
             fontSize: 20,
             color: '#fafafa',

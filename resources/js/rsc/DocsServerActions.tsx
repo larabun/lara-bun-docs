@@ -2,10 +2,10 @@ import CodeBlock from './CodeBlock';
 import Link from 'lara-bun/Link';
 
 const s = {
-  h1: { fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 32, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 12 } as const,
-  h2: { fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 22, fontWeight: 600, letterSpacing: '-0.01em', marginTop: 48, marginBottom: 12 } as const,
+  h1: { fontFamily: "system-ui, -apple-system, sans-serif", fontSize: 32, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 12 } as const,
+  h2: { fontFamily: "system-ui, -apple-system, sans-serif", fontSize: 22, fontWeight: 600, letterSpacing: '-0.01em', marginTop: 48, marginBottom: 12 } as const,
   p: { color: '#d4d4d8', fontSize: 15, lineHeight: 1.8, marginBottom: 16 } as const,
-  mono: { fontFamily: "ui-monospace, 'Cascadia Code', 'Fira Code', monospace", fontSize: 13, background: 'rgba(255,255,255,0.06)', padding: '2px 6px', borderRadius: 4, color: '#e4e4e7' } as const,
+  mono: { fontFamily: "ui-monospace, 'SFMono-Regular', monospace", fontSize: 13, background: 'rgba(255,255,255,0.06)', padding: '2px 6px', borderRadius: 4, color: '#e4e4e7' } as const,
   hr: { border: 'none', borderTop: '1px solid rgba(255,255,255,0.06)', margin: '40px 0' } as const,
   accent: { color: '#f59e0b' } as const,
   box: { background: '#18181b', borderRadius: 12, border: '1px solid rgba(255,255,255,0.06)', padding: 24, marginBottom: 20 } as const,
@@ -70,7 +70,7 @@ class CreatePost
         That's it — no config needed. Classes in <span style={s.mono}>app/Rsc/Actions/</span> are auto-discovered. The naming convention:
       </p>
       <div style={s.box}>
-        <div style={{ fontFamily: "ui-monospace, 'Cascadia Code', 'Fira Code', monospace", fontSize: 13, lineHeight: 2, color: '#d4d4d8' }}>
+        <div style={{ fontFamily: "ui-monospace, 'SFMono-Regular', monospace", fontSize: 13, lineHeight: 2, color: '#d4d4d8' }}>
           <div><span style={{ color: '#a1a1aa' }}>Invokable class:</span> <span style={{ color: '#c084fc' }}>CreatePost</span>::__invoke() → <span style={{ color: '#86efac' }}>createPost</span></div>
           <div><span style={{ color: '#a1a1aa' }}>Multi-method:</span> <span style={{ color: '#c084fc' }}>TodoActions</span>::add() → <span style={{ color: '#86efac' }}>todoActionsAdd</span></div>
           <div><span style={{ color: '#a1a1aa' }}>Multi-method:</span> <span style={{ color: '#c084fc' }}>TodoActions</span>::delete() → <span style={{ color: '#86efac' }}>todoActionsDelete</span></div>
@@ -132,7 +132,7 @@ export async function deletePost(id: number) {
           'Result is serialized as a Flight payload and streamed back to the browser',
         ].map((text, i) => (
           <li key={i} style={{ color: '#d4d4d8', fontSize: 15, lineHeight: 1.8, marginBottom: 8, paddingLeft: 8 }}>
-            <span style={{ color: '#f59e0b', fontFamily: "ui-monospace, 'Fira Code', monospace", fontSize: 12, marginRight: 8 }}>{i + 1}.</span>
+            <span style={{ color: '#f59e0b', fontFamily: "ui-monospace, 'SFMono-Regular', monospace", fontSize: 12, marginRight: 8 }}>{i + 1}.</span>
             {text}
           </li>
         ))}
@@ -155,27 +155,27 @@ export async function deletePost(id: number) {
           <tbody>
             <tr>
               <td style={{ padding: '8px 12px', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#a1a1aa' }}>Unauthenticated</td>
-              <td style={{ padding: '8px 12px', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#f59e0b', fontFamily: "ui-monospace, 'Fira Code', monospace" }}>401</td>
+              <td style={{ padding: '8px 12px', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#f59e0b', fontFamily: "ui-monospace, 'SFMono-Regular', monospace" }}>401</td>
               <td style={{ padding: '8px 12px', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#a1a1aa' }}>Auto-redirects to login page</td>
             </tr>
             <tr>
               <td style={{ padding: '8px 12px', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#a1a1aa' }}>Unauthorized</td>
-              <td style={{ padding: '8px 12px', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#f59e0b', fontFamily: "ui-monospace, 'Fira Code', monospace" }}>403</td>
+              <td style={{ padding: '8px 12px', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#f59e0b', fontFamily: "ui-monospace, 'SFMono-Regular', monospace" }}>403</td>
               <td style={{ padding: '8px 12px', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#a1a1aa' }}>Renders error page via exception handler</td>
             </tr>
             <tr>
               <td style={{ padding: '8px 12px', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#a1a1aa' }}>Validation failed</td>
-              <td style={{ padding: '8px 12px', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#f59e0b', fontFamily: "ui-monospace, 'Fira Code', monospace" }}>422</td>
+              <td style={{ padding: '8px 12px', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#f59e0b', fontFamily: "ui-monospace, 'SFMono-Regular', monospace" }}>422</td>
               <td style={{ padding: '8px 12px', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#a1a1aa' }}>Throws <span style={s.mono}>ServerValidationError</span></td>
             </tr>
             <tr>
               <td style={{ padding: '8px 12px', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#a1a1aa' }}>Session expired</td>
-              <td style={{ padding: '8px 12px', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#f59e0b', fontFamily: "ui-monospace, 'Fira Code', monospace" }}>419</td>
+              <td style={{ padding: '8px 12px', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#f59e0b', fontFamily: "ui-monospace, 'SFMono-Regular', monospace" }}>419</td>
               <td style={{ padding: '8px 12px', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 13, color: '#a1a1aa' }}>Throws <span style={s.mono}>ServerSessionExpiredError</span></td>
             </tr>
             <tr>
               <td style={{ padding: '8px 12px', fontSize: 13, color: '#a1a1aa' }}>Redirect</td>
-              <td style={{ padding: '8px 12px', fontSize: 13, color: '#f59e0b', fontFamily: "ui-monospace, 'Fira Code', monospace" }}>302</td>
+              <td style={{ padding: '8px 12px', fontSize: 13, color: '#f59e0b', fontFamily: "ui-monospace, 'SFMono-Regular', monospace" }}>302</td>
               <td style={{ padding: '8px 12px', fontSize: 13, color: '#a1a1aa' }}>SPA navigation (falls back to full page load)</td>
             </tr>
           </tbody>

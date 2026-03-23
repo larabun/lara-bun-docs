@@ -7,7 +7,7 @@ interface Stat {
   value: string | number;
 }
 
-const mono = "ui-monospace, 'Cascadia Code', 'Fira Code', monospace";
+const mono = "ui-monospace, 'SFMono-Regular', monospace";
 
 export default function StatsCard({ dataPromise }: { dataPromise: Promise<Stat[]> }) {
   const stats = use(dataPromise);
@@ -28,7 +28,7 @@ export default function StatsCard({ dataPromise }: { dataPromise: Promise<Stat[]
             fontSize: 24,
             fontWeight: 700,
             color: '#fafafa',
-            fontFamily: "'Bricolage Grotesque', sans-serif",
+            fontFamily: "system-ui, -apple-system, sans-serif",
             letterSpacing: '-0.02em',
             marginBottom: 4,
           }}>

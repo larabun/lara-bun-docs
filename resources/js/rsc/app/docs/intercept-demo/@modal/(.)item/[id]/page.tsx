@@ -44,7 +44,7 @@ export default function ItemModal({ id }: { id: string }) {
           marginBottom: 16,
         }} />
         <h2 style={{
-          fontFamily: "'Bricolage Grotesque', sans-serif",
+          fontFamily: "system-ui, -apple-system, sans-serif",
           fontSize: 22,
           fontWeight: 600,
           color: '#fafafa',
@@ -63,7 +63,7 @@ export default function ItemModal({ id }: { id: string }) {
         <p style={{
           color: '#52525b',
           fontSize: 12,
-          fontFamily: "ui-monospace, 'Fira Code', monospace",
+          fontFamily: "ui-monospace, 'SFMono-Regular', monospace",
           marginBottom: 20,
         }}>
           Rendered in @modal slot via (.)item/[id] interception

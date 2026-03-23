@@ -2,9 +2,9 @@ import Link from 'lara-bun/Link';
 import CodeBlock from './CodeBlock';
 
 const f = {
-  display: "'Bricolage Grotesque', sans-serif",
-  body: "'Outfit', system-ui, sans-serif",
-  mono: "ui-monospace, 'Fira Code', 'Cascadia Code', monospace",
+  display: "system-ui, -apple-system, sans-serif",
+  body: "system-ui, -apple-system, sans-serif",
+  mono: "ui-monospace, 'SFMono-Regular', monospace",
 };
 
 export default function LandingPage() {

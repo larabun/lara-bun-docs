@@ -23,7 +23,7 @@ export default function ItemPage({ id }: { id: string }) {
         marginBottom: 20,
       }} />
       <h1 style={{
-        fontFamily: "'Bricolage Grotesque', sans-serif",
+        fontFamily: "system-ui, -apple-system, sans-serif",
         fontSize: 28,
         fontWeight: 700,
         color: '#fafafa',
@@ -42,7 +42,7 @@ export default function ItemPage({ id }: { id: string }) {
       <p style={{
         color: '#52525b',
         fontSize: 12,
-        fontFamily: "ui-monospace, 'Fira Code', monospace",
+        fontFamily: "ui-monospace, 'SFMono-Regular', monospace",
       }}>
         This is the full page — shown on direct navigation or page refresh.
       </p>

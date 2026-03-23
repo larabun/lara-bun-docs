@@ -15,8 +15,8 @@ const descriptions: Record<number, string> = {
 };
 
 const f = {
-  display: "'Bricolage Grotesque', sans-serif",
-  body: "'Outfit', system-ui, sans-serif",
+  display: "system-ui, -apple-system, sans-serif",
+  body: "system-ui, -apple-system, sans-serif",
 };
 
 export default function Error({ status }: { status: number }) {

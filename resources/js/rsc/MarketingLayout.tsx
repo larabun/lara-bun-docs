@@ -12,7 +12,7 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
         padding: '40px 24px',
         textAlign: 'center',
         color: '#9a9aa2',
-        fontFamily: "'Outfit', sans-serif",
+        fontFamily: "system-ui, -apple-system, sans-serif",
         fontSize: '14px',
       }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
@@ -24,7 +24,7 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
             marginBottom: 12,
           }}>
             <span style={{
-              fontFamily: "'Bricolage Grotesque', sans-serif",
+              fontFamily: "system-ui, -apple-system, sans-serif",
               fontWeight: 700,
               fontSize: '16px',
               color: '#fafafa',

@@ -2,14 +2,14 @@ import CodeBlock from './CodeBlock';
 import Link from 'lara-bun/Link';
 
 const s = {
-  h1: { fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 32, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 12 } as const,
-  h2: { fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 22, fontWeight: 600, letterSpacing: '-0.01em', marginTop: 48, marginBottom: 12 } as const,
+  h1: { fontFamily: "system-ui, -apple-system, sans-serif", fontSize: 32, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 12 } as const,
+  h2: { fontFamily: "system-ui, -apple-system, sans-serif", fontSize: 22, fontWeight: 600, letterSpacing: '-0.01em', marginTop: 48, marginBottom: 12 } as const,
   p: { color: '#d4d4d8', fontSize: 15, lineHeight: 1.8, marginBottom: 16 } as const,
-  mono: { fontFamily: "ui-monospace, 'Cascadia Code', 'Fira Code', monospace", fontSize: 13, background: 'rgba(255,255,255,0.06)', padding: '2px 6px', borderRadius: 4, color: '#e4e4e7' } as const,
+  mono: { fontFamily: "ui-monospace, 'SFMono-Regular', monospace", fontSize: 13, background: 'rgba(255,255,255,0.06)', padding: '2px 6px', borderRadius: 4, color: '#e4e4e7' } as const,
   hr: { border: 'none', borderTop: '1px solid rgba(255,255,255,0.06)', margin: '40px 0' } as const,
   accent: { color: '#f59e0b' } as const,
   table: { width: '100%', borderCollapse: 'collapse' as const, marginBottom: 20 },
-  th: { textAlign: 'left' as const, padding: '10px 16px', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: 13, fontWeight: 600, color: '#fafafa', fontFamily: "ui-monospace, 'Cascadia Code', 'Fira Code', monospace" },
+  th: { textAlign: 'left' as const, padding: '10px 16px', borderBottom: '1px solid rgba(255,255,255,0.08)', fontSize: 13, fontWeight: 600, color: '#fafafa', fontFamily: "ui-monospace, 'SFMono-Regular', monospace" },
   td: { padding: '10px 16px', borderBottom: '1px solid rgba(255,255,255,0.04)', fontSize: 14, color: '#a1a1aa' },
 };
 
@@ -79,11 +79,11 @@ export default function DocsConfiguration() {
         </thead>
         <tbody>
           <tr>
-            <td style={{ ...s.td, fontFamily: "ui-monospace, 'Fira Code', monospace", fontSize: 13, whiteSpace: 'nowrap' }}>--watch</td>
+            <td style={{ ...s.td, fontFamily: "ui-monospace, 'SFMono-Regular', monospace", fontSize: 13, whiteSpace: 'nowrap' }}>--watch</td>
             <td style={s.td}>Auto-restart workers when RSC build output changes. Polls <span style={s.mono}>browser-chunks.json</span> for modifications and restarts all workers on change.</td>
           </tr>
           <tr>
-            <td style={{ ...s.td, fontFamily: "ui-monospace, 'Fira Code', monospace", fontSize: 13, whiteSpace: 'nowrap' }}>--socket=PATH</td>
+            <td style={{ ...s.td, fontFamily: "ui-monospace, 'SFMono-Regular', monospace", fontSize: 13, whiteSpace: 'nowrap' }}>--socket=PATH</td>
             <td style={s.td}>Override the Unix socket path (defaults to <span style={s.mono}>config('bun.socket_path')</span>).</td>
           </tr>
         </tbody>
@@ -114,12 +114,12 @@ php artisan bun:serve`}
         <tbody>
           <tr>
             <td style={s.td}><strong style={{ color: '#fafafa' }}>SSR</strong></td>
-            <td style={{ ...s.td, fontFamily: "ui-monospace, 'Fira Code', monospace", fontSize: 13 }}>BUN_SSR_ENABLED</td>
+            <td style={{ ...s.td, fontFamily: "ui-monospace, 'SFMono-Regular', monospace", fontSize: 13 }}>BUN_SSR_ENABLED</td>
             <td style={s.td}>Server-render Inertia pages via Bun instead of Node</td>
           </tr>
           <tr>
             <td style={s.td}><strong style={{ color: '#fafafa' }}>RSC</strong></td>
-            <td style={{ ...s.td, fontFamily: "ui-monospace, 'Fira Code', monospace", fontSize: 13 }}>BUN_RSC_ENABLED</td>
+            <td style={{ ...s.td, fontFamily: "ui-monospace, 'SFMono-Regular', monospace", fontSize: 13 }}>BUN_RSC_ENABLED</td>
             <td style={s.td}>Full React Server Components with streaming and Flight payloads</td>
           </tr>
         </tbody>

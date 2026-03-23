@@ -13,9 +13,7 @@
     <meta name="twitter:title" content="{{ $title ?? 'LaraBun' }}">
     <meta name="twitter:description" content="{{ $description ?? 'LaraBun bridges Laravel and Bun for React Server Components, Inertia SSR, streaming, and server actions.' }}">
     <meta name="twitter:image" content="{{ asset('og-image.png') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=optional">
+    {{-- <link rel="stylesheet" href="/fonts/fonts.css"> --}}
     @rscHead
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,13 +21,13 @@
         body {
             background: #09090b;
             color: #fafafa;
-            font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+            font-family: system-ui, -apple-system, sans-serif;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
         a { color: inherit; text-decoration: none; }
         ::selection { background: #f59e0b33; color: #fafafa; }
-        h1, h2, h3, h4 { font-family: 'Bricolage Grotesque', sans-serif; }
+        h1, h2, h3, h4 { font-family: system-ui, -apple-system, sans-serif; }
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }

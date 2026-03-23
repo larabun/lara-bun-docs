@@ -2,10 +2,10 @@ import { Suspense } from 'react';
 import Link from 'lara-bun/Link';
 
 const s = {
-  h1: { fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 32, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 12 } as const,
-  h2: { fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 22, fontWeight: 600, letterSpacing: '-0.01em', marginTop: 48, marginBottom: 12 } as const,
+  h1: { fontFamily: "system-ui, -apple-system, sans-serif", fontSize: 32, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 12 } as const,
+  h2: { fontFamily: "system-ui, -apple-system, sans-serif", fontSize: 22, fontWeight: 600, letterSpacing: '-0.01em', marginTop: 48, marginBottom: 12 } as const,
   p: { color: '#d4d4d8', fontSize: 15, lineHeight: 1.8, marginBottom: 16 } as const,
-  mono: { fontFamily: "ui-monospace, 'Cascadia Code', 'Fira Code', monospace", fontSize: 13, background: 'rgba(255,255,255,0.06)', padding: '2px 6px', borderRadius: 4, color: '#e4e4e7' } as const,
+  mono: { fontFamily: "ui-monospace, 'SFMono-Regular', monospace", fontSize: 13, background: 'rgba(255,255,255,0.06)', padding: '2px 6px', borderRadius: 4, color: '#e4e4e7' } as const,
   hr: { border: 'none', borderTop: '1px solid rgba(255,255,255,0.06)', margin: '40px 0' } as const,
   accent: { color: '#f59e0b' } as const,
   box: { background: '#18181b', borderRadius: 12, border: '1px solid rgba(255,255,255,0.06)', padding: 0, marginBottom: 0, overflow: 'hidden' } as const,
@@ -45,7 +45,7 @@ async function QuickData() {
     <div style={{ padding: 20 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
         <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#4ade80' }} />
-        <span style={{ color: '#4ade80', fontWeight: 600, fontSize: 14, fontFamily: "ui-monospace, 'Fira Code', monospace" }}>
+        <span style={{ color: '#4ade80', fontWeight: 600, fontSize: 14, fontFamily: "ui-monospace, 'SFMono-Regular', monospace" }}>
           Resolved in 500ms
         </span>
       </div>
@@ -62,7 +62,7 @@ async function MediumData() {
     <div style={{ padding: 20 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
         <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#f59e0b' }} />
-        <span style={{ color: '#f59e0b', fontWeight: 600, fontSize: 14, fontFamily: "ui-monospace, 'Fira Code', monospace" }}>
+        <span style={{ color: '#f59e0b', fontWeight: 600, fontSize: 14, fontFamily: "ui-monospace, 'SFMono-Regular', monospace" }}>
           Resolved in 2s
         </span>
       </div>
@@ -79,7 +79,7 @@ async function SlowData() {
     <div style={{ padding: 20 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
         <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#a78bfa' }} />
-        <span style={{ color: '#a78bfa', fontWeight: 600, fontSize: 14, fontFamily: "ui-monospace, 'Fira Code', monospace" }}>
+        <span style={{ color: '#a78bfa', fontWeight: 600, fontSize: 14, fontFamily: "ui-monospace, 'SFMono-Regular', monospace" }}>
           Resolved in 4s
         </span>
       </div>
@@ -111,7 +111,7 @@ export default function DocsSuspenseDemo() {
 
       <div style={{ display: 'grid', gap: 16, marginTop: 24 }}>
         <div style={s.box}>
-          <div style={{ padding: '12px 20px 0', fontSize: 12, color: '#9a9aa2', fontFamily: "ui-monospace, 'Fira Code', monospace" }}>
+          <div style={{ padding: '12px 20px 0', fontSize: 12, color: '#9a9aa2', fontFamily: "ui-monospace, 'SFMono-Regular', monospace" }}>
             {'<Suspense fallback={<Skeleton />}>'}
           </div>
           <Suspense fallback={<Skeleton lines={2} />}>
@@ -120,7 +120,7 @@ export default function DocsSuspenseDemo() {
         </div>
 
         <div style={s.box}>
-          <div style={{ padding: '12px 20px 0', fontSize: 12, color: '#9a9aa2', fontFamily: "ui-monospace, 'Fira Code', monospace" }}>
+          <div style={{ padding: '12px 20px 0', fontSize: 12, color: '#9a9aa2', fontFamily: "ui-monospace, 'SFMono-Regular', monospace" }}>
             {'<Suspense fallback={<Skeleton />}>'}
           </div>
           <Suspense fallback={<Skeleton lines={3} />}>
@@ -129,7 +129,7 @@ export default function DocsSuspenseDemo() {
         </div>
 
         <div style={s.box}>
-          <div style={{ padding: '12px 20px 0', fontSize: 12, color: '#9a9aa2', fontFamily: "ui-monospace, 'Fira Code', monospace" }}>
+          <div style={{ padding: '12px 20px 0', fontSize: 12, color: '#9a9aa2', fontFamily: "ui-monospace, 'SFMono-Regular', monospace" }}>
             {'<Suspense fallback={<Skeleton />}>'}
           </div>
           <Suspense fallback={<Skeleton lines={4} />}>

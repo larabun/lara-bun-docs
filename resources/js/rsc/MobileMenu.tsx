@@ -73,7 +73,7 @@ export default function MobileMenu() {
         }}>
           <div style={{ marginBottom: 24 }}>
             <span style={{
-              fontFamily: "'Bricolage Grotesque', sans-serif",
+              fontFamily: "system-ui, -apple-system, sans-serif",
               fontWeight: 700,
               fontSize: 18,
               color: '#fafafa',

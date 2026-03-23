@@ -9,7 +9,7 @@ interface Todo {
   done: boolean;
 }
 
-const mono = "ui-monospace, 'Cascadia Code', 'Fira Code', monospace";
+const mono = "ui-monospace, 'SFMono-Regular', monospace";
 
 export default function TodoDemo({ sessionId, initial }: { sessionId: string; initial: Todo[] }) {
   const [todos, setTodos] = useState<Todo[]>(initial);

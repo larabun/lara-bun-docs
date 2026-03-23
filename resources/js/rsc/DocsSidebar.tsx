@@ -59,7 +59,7 @@ export default function DocsSidebar() {
       {sections.map((section) => (
         <div key={section.title} style={{ marginBottom: 28 }}>
           <h4 style={{
-            fontFamily: "'Bricolage Grotesque', sans-serif",
+            fontFamily: "system-ui, -apple-system, sans-serif",
             fontSize: 11,
             fontWeight: 600,
             textTransform: 'uppercase',
