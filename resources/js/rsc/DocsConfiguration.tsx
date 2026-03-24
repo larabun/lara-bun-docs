@@ -33,11 +33,6 @@ export default function DocsConfiguration() {
     // Number of Bun worker processes
     'workers' => (int) env('BUN_WORKERS', 1),
 
-    // Inertia SSR settings
-    'ssr' => [
-        'enabled' => env('BUN_SSR_ENABLED', false),
-    ],
-
     // React Server Components settings
     'rsc' => [
         'enabled' => env('BUN_RSC_ENABLED', true),
@@ -47,6 +42,7 @@ export default function DocsConfiguration() {
         'root_view'        => 'lara-bun::rsc-app',
         'callback_timeout' => 5,
         'static_path'      => storage_path('framework/rsc-static'),
+        'body_size_limit'  => env('BUN_RSC_BODY_SIZE_LIMIT', '1mb'),
     ],
 
     'entry_points' => [],
@@ -80,7 +76,7 @@ export default function DocsConfiguration() {
         <tbody>
           <tr>
             <td style={{ ...s.td, fontFamily: "ui-monospace, 'SFMono-Regular', monospace", fontSize: 13, whiteSpace: 'nowrap' }}>--watch</td>
-            <td style={s.td}>Auto-restart workers when RSC build output changes. Polls <span style={s.mono}>browser-chunks.json</span> for modifications and restarts all workers on change.</td>
+            <td style={s.td}>Auto-restart workers when RSC build output changes. Polls <span style={s.mono}>browser-manifest.json</span> for modifications and restarts all workers on change.</td>
           </tr>
           <tr>
             <td style={{ ...s.td, fontFamily: "ui-monospace, 'SFMono-Regular', monospace", fontSize: 13, whiteSpace: 'nowrap' }}>--socket=PATH</td>
@@ -98,32 +94,6 @@ php artisan bun:serve`}
       <p style={s.p}>
         Use <span style={s.mono}>bun:dev</span> during development — it runs the build watcher and worker together in a single terminal. For production, use <span style={s.mono}>bun:serve</span> with a process manager like Supervisor.
       </p>
-
-      <h2 style={s.h2}>SSR vs RSC</h2>
-      <p style={s.p}>
-        LaraBun supports two modes. Enable one or both:
-      </p>
-      <table style={s.table}>
-        <thead>
-          <tr>
-            <th style={s.th}>Mode</th>
-            <th style={s.th}>Env Variable</th>
-            <th style={s.th}>Use Case</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={s.td}><strong style={{ color: '#fafafa' }}>SSR</strong></td>
-            <td style={{ ...s.td, fontFamily: "ui-monospace, 'SFMono-Regular', monospace", fontSize: 13 }}>BUN_SSR_ENABLED</td>
-            <td style={s.td}>Server-render Inertia pages via Bun instead of Node</td>
-          </tr>
-          <tr>
-            <td style={s.td}><strong style={{ color: '#fafafa' }}>RSC</strong></td>
-            <td style={{ ...s.td, fontFamily: "ui-monospace, 'SFMono-Regular', monospace", fontSize: 13 }}>BUN_RSC_ENABLED</td>
-            <td style={s.td}>Full React Server Components with streaming and Flight payloads</td>
-          </tr>
-        </tbody>
-      </table>
 
       <h2 style={s.h2}>File-Based Routing</h2>
       <p style={s.p}>

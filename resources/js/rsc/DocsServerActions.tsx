@@ -239,7 +239,7 @@ class CreatePost
       </CodeBlock>
 
       <p style={s.p}>
-        The client navigates using the SPA router. If the target URL is an RSC page, navigation happens instantly without a full page reload. If it's a non-RSC page (Blade, Inertia, or external URL), it falls back to a standard page load automatically.
+        The client navigates using the SPA router. If the target URL is an RSC page, navigation happens instantly without a full page reload. If it's a non-RSC page (Blade or external URL), it falls back to a standard page load automatically.
       </p>
 
       <div style={{

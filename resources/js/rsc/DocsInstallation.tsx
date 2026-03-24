@@ -41,7 +41,7 @@ export default function DocsInstallation() {
         {`php artisan vendor:publish --tag=lara-bun-config`}
       </CodeBlock>
       <p style={s.p}>
-        Creates <span style={s.mono}>config/bun.php</span> where you configure the socket path, worker count, SSR, and RSC options.
+        Creates <span style={s.mono}>config/bun.php</span> where you configure the socket path, worker count, and RSC options.
       </p>
 
       <h2 style={s.h2}>3. Install JavaScript Dependencies</h2>

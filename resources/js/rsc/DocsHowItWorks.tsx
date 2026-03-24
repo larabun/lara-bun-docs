@@ -113,7 +113,7 @@ export default function DocsHowItWorks() {
 
       <hr style={s.hr} />
       <p style={s.p}>
-        Next: <Link href="/docs/inertia-ssr" style={s.accent}>Inertia SSR →</Link>
+        Next: <Link href="/docs/rsc" style={s.accent}>RSC & File-Based Routing →</Link>
       </p>
     </div>
   );
