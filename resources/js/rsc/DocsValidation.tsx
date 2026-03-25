@@ -71,7 +71,7 @@ class CreatePost
         {`"use client";
 
 import { useState } from 'react';
-import { ServerValidationError } from 'lara-bun/router';
+import { ServerValidationError } from 'lara-bun/errors';
 import { createPost } from './server-actions.generated';
 
 export default function PostForm() {

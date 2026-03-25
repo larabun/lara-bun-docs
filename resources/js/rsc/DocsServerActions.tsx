@@ -198,7 +198,7 @@ export async function deletePost(id: number) {
         <strong style={{ color: '#fafafa' }}>419 — Session expired.</strong> When the CSRF token expires (e.g. user left the tab open for a long time), a <span style={s.mono}>ServerSessionExpiredError</span> is thrown. Handle it to show a message or reload:
       </p>
       <CodeBlock language="tsx">
-        {`import { ServerSessionExpiredError } from 'lara-bun/router';
+        {`import { ServerSessionExpiredError } from 'lara-bun/errors';
 
 try {
   await createPost(title, body);

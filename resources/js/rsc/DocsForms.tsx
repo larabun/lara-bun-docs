@@ -26,7 +26,7 @@ export default function DocsForms() {
       <CodeBlock language="tsx" title="TodoForm.tsx">
         {`"use client";
 
-import { Form } from "lara-bun/router";
+import { Form } from "lara-bun/form";
 import { addTodo } from "./actions";
 
 type FormValues = { title: string };
@@ -74,7 +74,7 @@ export default function TodoForm() {
       <CodeBlock language="tsx" title="SubmitButton.tsx">
         {`"use client";
 
-import { useFormStatus } from "lara-bun/router";
+import { useFormStatus } from "lara-bun/form";
 
 export function SubmitButton() {
   const { pending } = useFormStatus();
@@ -96,7 +96,7 @@ export function SubmitButton() {
       <CodeBlock language="tsx" title="EditProfile.tsx">
         {`"use client";
 
-import { useForm } from "lara-bun/router";
+import { useForm } from "lara-bun/form";
 import { updateProfile } from "./actions";
 
 type ProfileForm = { name: string; email: string; bio: string };
@@ -197,7 +197,7 @@ class CreateTodo
         {`"use client";
 
 import { useOptimistic } from "react";
-import { Form } from "lara-bun/router";
+import { Form } from "lara-bun/form";
 import { addTodo } from "./actions";
 
 type Todo = { id: number; title: string; done: boolean };
@@ -235,7 +235,7 @@ export default function TodoList({ todos }: { todos: Todo[] }) {
         {`"use client";
 
 import { useOptimistic } from "react";
-import { useForm } from "lara-bun/router";
+import { useForm } from "lara-bun/form";
 import { addTodo } from "./actions";
 
 type Todo = { id: number; title: string; done: boolean };
@@ -289,7 +289,7 @@ export default function TodoList({ todos }: { todos: Todo[] }) {
       <CodeBlock language="tsx" title="SearchForm.tsx">
         {`"use client";
 
-import { Form } from "lara-bun/router";
+import { Form } from "lara-bun/form";
 
 export default function SearchForm() {
   return (
