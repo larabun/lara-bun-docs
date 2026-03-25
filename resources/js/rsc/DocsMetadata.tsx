@@ -116,12 +116,13 @@ export default function SettingsPage() {
               ['keywords', '<meta name="keywords">'],
               ['author', '<meta name="author">'],
               ['robots', '<meta name="robots">'],
+              ['icons', '<link rel="icon" href="...">'],
               ['og:*', '<meta property="og:*">'],
               ['twitter:*', '<meta name="twitter:*">'],
             ].map(([key, output], i) => (
               <tr key={key}>
-                <td style={{ padding: '8px 12px', borderBottom: i < 6 ? '1px solid rgba(255,255,255,0.04)' : 'none', fontSize: 13, color: '#f59e0b', fontFamily: "ui-monospace, 'SFMono-Regular', monospace" }}>{key}</td>
-                <td style={{ padding: '8px 12px', borderBottom: i < 6 ? '1px solid rgba(255,255,255,0.04)' : 'none', fontSize: 13, color: '#a1a1aa', fontFamily: "ui-monospace, 'SFMono-Regular', monospace" }}>{output}</td>
+                <td style={{ padding: '8px 12px', borderBottom: i < 7 ? '1px solid rgba(255,255,255,0.04)' : 'none', fontSize: 13, color: '#f59e0b', fontFamily: "ui-monospace, 'SFMono-Regular', monospace" }}>{key}</td>
+                <td style={{ padding: '8px 12px', borderBottom: i < 7 ? '1px solid rgba(255,255,255,0.04)' : 'none', fontSize: 13, color: '#a1a1aa', fontFamily: "ui-monospace, 'SFMono-Regular', monospace" }}>{output}</td>
               </tr>
             ))}
           </tbody>
@@ -142,6 +143,41 @@ export default function SettingsPage() {
   keywords: ['react', 'laravel', 'rsc'],
 };`}
       </CodeBlock>
+
+      <h2 style={s.h2}>Icons &amp; Favicon</h2>
+      <p style={s.p}>
+        The <span style={s.mono}>icons</span> field supports a simple string, an array of descriptors, or a categorised object:
+      </p>
+      <CodeBlock language="tsx">
+        {`// Simple favicon
+export const metadata: Metadata = {
+  icons: '/favicon.ico',
+};
+
+// Multiple icons with attributes
+export const metadata: Metadata = {
+  icons: [
+    { url: '/favicon.ico', sizes: '32x32' },
+    { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+  ],
+};
+
+// Categorised — icon, apple, shortcut
+export const metadata: Metadata = {
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+    other: {
+      rel: 'mask-icon',
+      url: '/safari-pinned-tab.svg',
+      color: '#5bbad5',
+    },
+  },
+};`}
+      </CodeBlock>
+      <p style={s.p}>
+        Each icon descriptor supports <span style={s.mono}>url</span>, <span style={s.mono}>type</span>, <span style={s.mono}>sizes</span>, <span style={s.mono}>color</span>, <span style={s.mono}>rel</span>, <span style={s.mono}>media</span>, and <span style={s.mono}>fetchPriority</span>.
+      </p>
 
       <h2 style={s.h2}>How It Works</h2>
       <div style={s.box}>
