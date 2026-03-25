@@ -112,6 +112,48 @@ export default function PostForm() {
 }`}
       </CodeBlock>
 
+      <h2 style={s.h2}>Using FormRequest</h2>
+      <p style={s.p}>
+        Instead of inline validation, you can type-hint a <span style={s.mono}>FormRequest</span> on your callable method. LaraBun detects the type hint, merges the incoming data, and resolves the FormRequest through Laravel's container — running <span style={s.mono}>authorize()</span> and <span style={s.mono}>rules()</span> automatically:
+      </p>
+      <CodeBlock language="php" title="app/Http/Requests/StorePostRequest.php">
+        {`<?php
+
+namespace App\\Http\\Requests;
+
+use Illuminate\\Foundation\\Http\\FormRequest;
+
+class StorePostRequest extends FormRequest
+{
+    public function rules(): array
+    {
+        return [
+            'title' => ['required', 'min:3', 'max:255'],
+            'body' => ['required', 'min:10'],
+        ];
+    }
+}`}
+      </CodeBlock>
+      <CodeBlock language="php" title="app/Rsc/Actions/CreatePost.php">
+        {`<?php
+
+namespace App\\Rsc\\Actions;
+
+use App\\Http\\Requests\\StorePostRequest;
+use App\\Models\\Post;
+
+class CreatePost
+{
+    public function __invoke(StorePostRequest $request): array
+    {
+        return Post::create($request->validated())->toArray();
+    }
+}`}
+      </CodeBlock>
+      <p style={s.p}>
+        Validation errors are handled identically — a <span style={s.mono}>ValidationException</span> is thrown and surfaced as a <span style={s.mono}>ServerValidationError</span> on the client. No changes needed on the React side.
+      </p>
+
       <h2 style={s.h2}>ServerValidationError</h2>
       <p style={s.p}>
         The <span style={s.mono}>ServerValidationError</span> class extends <span style={s.mono}>Error</span> and provides:

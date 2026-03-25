@@ -110,6 +110,25 @@ php artisan bun:serve`}
         The <span style={s.mono}>callback_timeout</span> sets how many seconds Bun will wait for PHP to respond to a callable invocation. Defaults to 5 seconds.
       </p>
 
+      <h2 style={s.h2}>Inline Environment Variables</h2>
+      <p style={s.p}>
+        Environment variables prefixed with <span style={s.mono}>PUBLIC_</span> are automatically inlined into browser bundles at build time. This lets client components access public configuration without async calls:
+      </p>
+      <CodeBlock language="ini" title=".env">
+        {`PUBLIC_STRIPE_KEY=pk_live_xxx
+PUBLIC_APP_NAME=My App
+SECRET_KEY=sk_live_xxx  # NOT inlined — no PUBLIC_ prefix`}
+      </CodeBlock>
+      <CodeBlock language="tsx" title="Client component">
+        {`"use client";
+
+// Replaced at build time with the actual value
+const stripe = loadStripe(process.env.PUBLIC_STRIPE_KEY);`}
+      </CodeBlock>
+      <p style={s.p}>
+        Only <span style={s.mono}>PUBLIC_*</span> variables are exposed to the browser. Non-prefixed variables remain server-side only. TypeScript autocomplete works automatically via the generated <span style={s.mono}>env.d.ts</span>.
+      </p>
+
       <h2 style={s.h2}>Server Actions</h2>
       <p style={s.p}>
         Server actions are auto-discovered from <span style={s.mono}>app/Rsc/Actions/</span> by convention. Place your action classes there and run <span style={s.mono}>php artisan rsc:action-manifest</span> to generate the manifest. See <Link href="/docs/server-actions" style={s.accent}>Server Actions</Link> for details.
