@@ -38,3 +38,6 @@ tsconfig.json
 /public/build/css
 resources/js/rsc/server-actions.generated.ts
 storage/framework/rsc-dev
+
+# LaraBun RSC (generated)
+resources/js/rsc/env.d.ts
