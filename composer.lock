@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ae7438a27626a120b454c87b6938e12d",
+    "content-hash": "21936f129bad6d018d646cb737aa8270",
     "packages": [
         {
             "name": "brick/math",
@@ -1143,16 +1143,16 @@
         },
         {
             "name": "larabun/lara-bun",
-            "version": "v0.5.0",
+            "version": "v0.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/larabun/lara-bun.git",
-                "reference": "05f40b501c6d7b6eb3a2803057260851f81b520c"
+                "reference": "39b448890f2e2d46bcd546783344e6c62150823e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/larabun/lara-bun/zipball/05f40b501c6d7b6eb3a2803057260851f81b520c",
-                "reference": "05f40b501c6d7b6eb3a2803057260851f81b520c",
+                "url": "https://api.github.com/repos/larabun/lara-bun/zipball/39b448890f2e2d46bcd546783344e6c62150823e",
+                "reference": "39b448890f2e2d46bcd546783344e6c62150823e",
                 "shasum": ""
             },
             "require": {
@@ -1215,10 +1215,10 @@
                 "unix-socket"
             ],
             "support": {
-                "source": "https://github.com/larabun/lara-bun/tree/v0.5.0",
+                "source": "https://github.com/larabun/lara-bun/tree/v0.7.2",
                 "issues": "https://github.com/larabun/lara-bun/issues"
             },
-            "time": "2026-03-22T01:05:18+00:00"
+            "time": "2026-03-26T02:13:01+00:00"
         },
         {
             "name": "laravel/framework",
